@@ -7,8 +7,10 @@ end
 class AboutMethods < Neo::Koan
 
   def test_calling_global_methods
-    assert_equal __, my_global_method(2,3)
+    assert_equal 5, my_global_method(2,3)
   end
+
+  # BOOK MARK
 
   def test_calling_global_methods_without_parentheses
     result = my_global_method 2, 3
