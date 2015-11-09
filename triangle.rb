@@ -14,7 +14,7 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  # WRITE THIS CODE
+  
 end
 
 # Error class used in part 2.  No need to change this code.

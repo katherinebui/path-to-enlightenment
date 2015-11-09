@@ -112,13 +112,13 @@ class AboutRegularExpressions < Neo::Koan
   end
 
   def test_slash_b_anchors_to_a_word_boundary
-    assert_equal "vines", "bovine vines"[/\bvine./] # ASK BABY
+    assert_equal "vines", "bovine vines"[/\bvine./] # matches word and word bountry
   end
 
   # ------------------------------------------------------------------
 
   def test_parentheses_group_contents
-    assert_equal "hahaha", "ahahaha"[/(ha)+/] # ASK BABY
+    assert_equal "hahaha", "ahahaha"[/(ha)+/]
   end
 
   # ------------------------------------------------------------------
@@ -140,7 +140,7 @@ class AboutRegularExpressions < Neo::Koan
     grays = /(James|Dana|Summer) Gray/
     assert_equal "James Gray", "James Gray"[grays]
     assert_equal "Summer", "Summer Gray"[grays, 1]
-    assert_equal nil, "Jim Gray"[grays, 1] # ?? ASK BABY
+    assert_equal nil, "Jim Gray"[grays, 1] 
   end
 
   # THINK ABOUT IT:
@@ -157,12 +157,12 @@ class AboutRegularExpressions < Neo::Koan
   end
 
   def test_sub_is_like_find_and_replace
-    assert_equal "one t-three", "one two-three".sub(/(t\w*)/) { $1[0, 1] } # ASK BABY
+    assert_equal "one t-three", "one two-three".sub(/(t\w*)/) { $1[0, 1] } 
     # replacing only the word
   end
 
   def test_gsub_is_like_find_and_replace_all
-    assert_equal "one t-t", "one two-three".gsub(/(t\w*)/) { $1[0, 1] } # ASK BABY
+    assert_equal "one t-t", "one two-three".gsub(/(t\w*)/) { $1[0, 1] }
     # replacing everything after that? *
   end
 end
