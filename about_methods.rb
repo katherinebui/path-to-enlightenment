@@ -44,12 +44,13 @@ class AboutMethods < Neo::Koan
       # been encountered or exit the program completely. 
       # Which of these happens - dealing with it or aborting the program - depends on whether you have provided a rescue clause
     end
-    assert_match(/0 for 2/, exception.message) # ASK BABY
+
+    assert_match(/0 for 2/, exception.message) # give 0 args where suppose to be 2
 
     exception = assert_raise(ArgumentError) do
       my_global_method(1,2,3)
     end
-    assert_match(/3 for 2/, exception.message) # ASK BABY
+    assert_match(/3 for 2/, exception.message) 
   end
 
   # ------------------------------------------------------------------

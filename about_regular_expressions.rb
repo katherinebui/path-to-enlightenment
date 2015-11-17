@@ -166,3 +166,7 @@ class AboutRegularExpressions < Neo::Koan
     # replacing everything after that? *
   end
 end
+
+# Repetition is greedy by default: as many occurrences as possible are matched while 
+# still allowing the overall match to succeed. By contrast, lazy matching makes the minimal
+# amount of matches necessary for overall success.

@@ -29,8 +29,33 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 #
 # Your goal is to write the score method.
 
+# http://www.sitepoint.com/tour-random-ruby/
+
+
 def score(dice)
-  # You need to write this method
+  score = 0
+  points = Hash.new(0)
+  points[1] = 100
+  points[5] = 50
+  
+  counts = Hash.new(0)
+  dice.each { |number| counts[number] += 1 }
+
+  counts.each do |number, count|
+    if count >= 3
+      if number == 1
+        score += 1000
+      else
+        score += (number * 100)
+      end
+      count = count - 3
+    end
+    
+    score += points[number] * count
+  end
+  
+  score
+
 end
 
 class AboutScoringProject < Neo::Koan
