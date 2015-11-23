@@ -13,11 +13,43 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 # of the Proxy class is given in the AboutProxyObjectProject koan.
 
 class Proxy
+  attr_reader :object, :messages # without this, gotta put @ in front of things
+
   def initialize(target_object)
     @object = target_object
+    @messages = []
     # ADD MORE CODE HERE
   end
 
+  def method_missing(method_name, *args, &block)
+    if object.respond_to? method_name
+      messages << method_name
+      object.send method_name, *args
+    else
+      super
+      # super calls that the same method to ancestor - passes msg up the chain
+    end
+  end
+
+  def called?(method_name)
+    messages.include?(method_name)
+  end
+
+  def number_of_times_called(method_name)
+    # count = 0
+
+    # messages.each do | message |
+    #   if message == method_name
+    #     count += 1
+    #   end
+    # end
+
+    # return count
+
+    messages.inject(0) do |count, message|
+      message == method_name ? count += 1 : count
+    end
+  end
   # WRITE CODE HERE
 end
 
@@ -36,7 +68,7 @@ class AboutProxyObjectProject < Neo::Koan
   def test_tv_methods_still_perform_their_function
     tv = Proxy.new(Television.new)
 
-    tv.channel = 10
+    tv.channel= 10
     tv.power
 
     assert_equal 10, tv.channel
