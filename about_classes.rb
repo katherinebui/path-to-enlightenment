@@ -1,7 +1,8 @@
 require File.expand_path(File.dirname(__FILE__) + '/neo')
 
 
-# REVIEW CLASSES
+# description of an object
+# example - class: dog
 
 
 class AboutClasses < Neo::Koan

@@ -29,7 +29,7 @@ class AboutOpenClasses < Neo::Koan
 
   # ------------------------------------------------------------------
 
-  class ::Integer
+  class ::Integer # :: module, classes can be apart of module
     def even?
       (self % 2) == 0
     end

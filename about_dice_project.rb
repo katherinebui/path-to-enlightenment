@@ -2,9 +2,27 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 
 # Implement a DiceSet Class here:
 #
-# class DiceSet
-#   code ...
-# end
+ class DiceSet
+  attr_reader :values 
+  # give an interface in class that is not modifiable
+  # i.e. want to know someone's name, but not let others change it
+  # ruby shorthand
+  # defines methods on the class to read attributes (class = instant varibales)
+  # @ makes instance variable 
+  # a persons name is instant var 
+  # class vari is something everyone has that you share
+
+  def roll(x)
+  # roll(x) is the only function to be defined.
+  # it takes in the number of dice to be rolled,
+  # and assigns a random value (from 1 - 6) to each die.
+
+    @values = (1..x).map{ rand(6) + 1 } # .map = a numerator, like .each, 
+  # it maps all numbers in the function and returns all the functions again
+  end
+  # NOTE:  An @ before a value is an instance variable.
+  # "values" is the instance variable, and it becomes an array during the roll() function, since it is not typed initially.
+ end
 
 class AboutDiceProject < Neo::Koan
   def test_can_create_a_dice_set
